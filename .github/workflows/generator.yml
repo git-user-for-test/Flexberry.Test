@@ -46,7 +46,6 @@ jobs:
           export DISPLAY=:99
           export SSH_ASKPASS=1
           export FLEXBERRY_TOKEN
-          cd..
           ls
           dotnet ./gen/NewPlatform.Flexberry.Designer.CommandLine.3.0.0-beta07/tools/flexberry.dll ./GenConfig.fdg "${FLEXBERRY_TOKEN}"
       - name: Tune ssh-keys
