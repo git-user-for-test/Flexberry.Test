@@ -38,14 +38,14 @@ jobs:
           npm install -g ember-cli@3.1.4
 
       - name: Install NewPlatform.Flexberry.Designer.CommandLine
-        run: nuget install NewPlatform.Flexberry.Designer.CommandLine -Version 3.0.0-beta08 -OutputDirectory gen
+        run: nuget install NewPlatform.Flexberry.Designer.CommandLine -Version 3.0.0-beta09 -OutputDirectory gen
 
       - name: Code generation
         env:
             FLEXBERRY_TOKEN: ${{ secrets.FLEXBERRY_TOKEN }}   
         run: |
           export FLEXBERRY_TOKEN
-          dotnet ./gen/NewPlatform.Flexberry.Designer.CommandLine.3.0.0-beta08/tools/flexberry.dll ./GenConfig.fdg "${FLEXBERRY_TOKEN}"
+          dotnet ./gen/NewPlatform.Flexberry.Designer.CommandLine.3.0.0-beta09/tools/flexberry.dll ./GenConfig.fdg "${FLEXBERRY_TOKEN}"
       - name: Tune ssh-keys
         env:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}     
