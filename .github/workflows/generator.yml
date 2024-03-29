@@ -1,4 +1,3 @@
-
 name: CodeGen
 
 # Controls when the action will run.
@@ -19,15 +18,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: '7.0.x'
-
-      - name: Setup .NET Core
-        run: sudo apt-get update && sudo apt-get install -y libgdiplus jq
-
-          
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
@@ -40,16 +30,20 @@ jobs:
           yarn global add bower
           npm install -g bower
           npm install -g ember-cli@3.1.4
-
       - name: Install NewPlatform.Flexberry.Designer.CommandLine
-        run: nuget install NewPlatform.Flexberry.Designer.CommandLine -Version 3.0.0-beta14 -OutputDirectory gen
+        run: nuget install NewPlatform.Flexberry.Designer.CommandLine -Version 3.0.0-beta15 -OutputDirectory gen
+
+      - name: Starting X virtual framebuffer (Xvfb) in background
+        run: Xvfb -ac :99 -screen 0 1280x1024x16 &
 
       - name: Code generation
         env:
             FLEXBERRY_TOKEN: ${{ secrets.FLEXBERRY_TOKEN }}   
         run: |
+          export DISPLAY=:99
+          export SSH_ASKPASS=1
           export FLEXBERRY_TOKEN
-          dotnet ./gen/NewPlatform.Flexberry.Designer.CommandLine.3.0.0-beta14/tools/flexberry.dll ./GenConfig.fdg "${FLEXBERRY_TOKEN}"
+          mono ./gen/NewPlatform.Flexberry.Designer.CommandLine.3.0.0-beta15/tools/flexberry.exe ./GenConfig.fdg "${FLEXBERRY_TOKEN}"
       - name: Tune ssh-keys
         env:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}     
