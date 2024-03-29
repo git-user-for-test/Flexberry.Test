@@ -1,0 +1,48 @@
+﻿{
+  "name": "IISTestNewClass3",
+  "modelName": "i-i-s-test-new-class3",
+  "className": "NewClass3",
+  "nameSpace": "IIS.Test",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "asd3",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "newClass2",
+      "relatedTo": "i-i-s-test-new-class2",
+      "inverse": "newClass3"
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "NewClass3E",
+      "modelName": "i-i-s-test-new-class3",
+      "attrs": [
+        {
+          "name": "asd3",
+          "caption": "Asd3",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

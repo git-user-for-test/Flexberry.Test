@@ -1,0 +1,120 @@
+﻿{
+  "name": "IISTestNewClass2",
+  "modelName": "i-i-s-test-new-class2",
+  "className": "NewClass2",
+  "nameSpace": "IIS.Test",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "asd2",
+      "type": "boolean",
+      "flexberryType": "bool",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "newClass1",
+      "relatedTo": "i-i-s-test-new-class1",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "newClass3",
+      "relatedTo": "i-i-s-test-new-class3",
+      "inverse": "newClass2"
+    }
+  ],
+  "projections": [
+    {
+      "name": "NewClass2E",
+      "modelName": "i-i-s-test-new-class2",
+      "attrs": [
+        {
+          "name": "asd2",
+          "caption": "Asd2",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "asd",
+          "lookupValueField": "asd",
+          "relationName": "NewClass1",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "asd",
+              "caption": "Asd",
+              "hidden": true,
+              "index": 2
+            }
+          ],
+          "index": 1,
+          "type": "standard",
+          "caption": "New class1",
+          "name": "newClass1",
+          "relatedTo": "i-i-s-test-new-class1",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "NewClass3E",
+          "caption": "New class3",
+          "name": "newClass3",
+          "relatedTo": "i-i-s-test-new-class3",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "NewClass2L",
+      "modelName": "i-i-s-test-new-class2",
+      "attrs": [
+        {
+          "name": "asd2",
+          "caption": "Asd2",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "NewClass1",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "asd",
+              "caption": "Asd",
+              "hidden": false,
+              "index": 1
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Asd",
+          "name": "newClass1",
+          "relatedTo": "i-i-s-test-new-class1",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

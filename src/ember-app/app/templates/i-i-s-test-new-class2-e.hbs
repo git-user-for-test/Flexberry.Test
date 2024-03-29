@@ -1,0 +1,69 @@
+<h3 class="ui header">{{t "forms.i-i-s-test-new-class2-e.caption"}}</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-test-new-class2-e.asd2-caption"}}</label>
+    {{flexberry-checkbox
+      readonly=readonly
+      value=model.asd2
+      class=(if (v-get validationModel "asd2" "isInvalid") "error")
+      data-test-i-i-s-test-new-class2-e-asd2=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "asd2" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-test-new-class2-e.newClass1-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.newClass1
+      displayAttributeName="asd"
+      autocomplete=true
+      relationName="newClass1"
+      projection="NewClass1L"
+      title=(t "forms.i-i-s-test-new-class2-e.newClass1-caption")
+      readonly=readonly
+      componentName="newClass1Lookup"
+      class=(if (v-get validationModel "newClass1" "isInvalid") "error")
+      data-test-i-i-s-test-new-class2-e-newClass1=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "newClass1" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-test-new-class2-e.newClass3-caption"}}</label>
+    {{flexberry-groupedit
+      componentName="newClass3GroupEdit"
+      mainModelProjection=modelProjection
+      modelProjection=modelProjection.attributes.newClass3
+      content=model.newClass3
+      readonly=readonly
+      orderable=false
+      class=(if (v-get validationModel "newClass3" "isInvalid") "error")
+      data-test-i-i-s-test-new-class2-e-newClass3=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "newClass3" "message")}}
+  </div>
+</form>

@@ -1,0 +1,54 @@
+﻿{
+  "name": "IISTestNewClass1",
+  "modelName": "i-i-s-test-new-class1",
+  "className": "NewClass1",
+  "nameSpace": "IIS.Test",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "asd",
+      "type": "number",
+      "flexberryType": "int",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "NewClass1E",
+      "modelName": "i-i-s-test-new-class1",
+      "attrs": [
+        {
+          "name": "asd",
+          "caption": "Asd",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    },
+    {
+      "name": "NewClass1L",
+      "modelName": "i-i-s-test-new-class1",
+      "attrs": [
+        {
+          "name": "asd",
+          "caption": "Asd",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}
