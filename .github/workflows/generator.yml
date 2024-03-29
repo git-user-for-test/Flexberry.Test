@@ -25,7 +25,7 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Setup .NET Core
-        run: apt-get update && apt-get install -y libgdiplus jq
+        run: sudo apt-get update && sudo apt-get install -y libgdiplus jq
 
           
       - name: Use Node.js
